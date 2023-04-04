@@ -1,14 +1,96 @@
-.carousel {}
+html, body{
+    font-size: 16px;
+}
+:root{
+    --carousel-height: 18.75rem;
+}
+@keyframes slide-1 {
+    0% { left:0;}
+    20% { left:0;}
+    40% { left:-100%;}
+    60% { left:-100%;}
+    80% { left:-200%;}
+    100% { left:-200%;}
 
-.carousel .carousel__slides {}
+}
+
+@keyframes slide-2 {
+    0% { left:100%;}
+    20% { left:100%;}
+    40% { left: 0;}
+    60% { left: 0;}
+    80% { left:-100%;}
+    100% { left:-100%;}
+
+}
+@keyframes slide-3 {
+    0% { left:200%;}
+    20% { left:200%;}
+    40% { left:100%;}
+    60% { left:100%;}
+    80% { left:0;}
+    100% { left:0;}
+
+}
+
+.carousel {
+    background-color: lightskyblue;
+    }
+
+.carousel .carousel__slides {
+    position:relative;
+    overflow: hidden;
+    min-height: var(--carousel-height);
+}
 .carousel .carousel__slide {}
 .carousel .carousel__nav {}
 
-.slide {}
+.slide {
+    position: absolute;
+    width: 100%;
+    min-height: var(--carousel-height);
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
-.slide .slide__hdl {}
+.slide:first-child {
+    left:0;
+    animation-name: slide-1;
+    background-image: url(../images/pobrane.jpg);
+}
+
+.slide:nth-child(2) {
+            left:100%;
+    animation-name: slide-2;
+    background-image: url(../images/pobrane2.jpg);
+}
+
+.slide:last-child{
+    background-color: hotpink;
+    left:200%;
+    animation-name: slide-3;
+    background-image: url(../images/pobrane3.jpg);
+
+}
+.slide .slide__box{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.625rem;
+    box-sizing: border-box;
+}
+.slide .slide__hdl {
+    margin-top: 0;
+}
 .slide .slide__text {}
 .slide .slide__link {}
+.slide .slide__link:hover{}
 
 .nav {}
 .nav .nav__btn {}
